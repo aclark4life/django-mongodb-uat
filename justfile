@@ -5,13 +5,13 @@ default:
 
 migrate:
     echo 'Running database migrations...'
-    python uat/manage.py migrate
+    python manage.py migrate
 
 alias m := migrate
 
 serve:
     echo 'Starting development server...'
-    python uat/manage.py runserver
+    python manage.py runserver
 
 alias s := serve
 
