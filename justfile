@@ -20,3 +20,23 @@ open:
     xdg-open http://localhost:8000 || open http://localhost:8000
 
 alias o := open
+
+
+makemigrations:
+    echo 'Creating new database migrations...'
+    python manage.py makemigrations
+
+alias mm := makemigrations
+
+
+install:
+    echo 'Installing dependencies...'
+    pip install django-mongodb-backend
+
+alias i := install
+
+drop:
+    echo 'Dropping MongoDB database "uat"...'
+    mongosh ${MONGODB_URI:-mongodb://localhost:27017} --eval 'db.getSiblingDB("uat").dropDatabase()'
+
+alias d := drop
