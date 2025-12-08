@@ -21,13 +21,11 @@ open:
 
 alias o := open
 
-
 makemigrations:
     echo 'Creating new database migrations...'
     python manage.py makemigrations admin auth contenttypes
 
 alias mm := makemigrations
-
 
 install:
     echo 'Installing dependencies...'
@@ -40,7 +38,6 @@ drop:
     mongosh ${MONGODB_URI:-mongodb://localhost:27017} --eval 'db.getSiblingDB("uat").dropDatabase()'
 
 alias d := drop
-
 
 createsuperuser:
     echo 'Creating superuser...'
