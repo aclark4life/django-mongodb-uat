@@ -40,3 +40,11 @@ drop:
     mongosh ${MONGODB_URI:-mongodb://localhost:27017} --eval 'db.getSiblingDB("uat").dropDatabase()'
 
 alias d := drop
+
+
+createsuperuser:
+    echo 'Creating superuser...'
+    export DJANGO_SUPERUSER_PASSWORD='admin'
+    python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
+
+alias su := createsuperuser
