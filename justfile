@@ -3,6 +3,25 @@
 default:
     echo 'Hello, world!'
 
+open:
+    echo 'Opening application in web browser...'
+    xdg-open http://localhost:8000 || open http://localhost:8000
+
+alias o := open
+
+lint:
+    # Format this justfile using just's unstable formatter
+    JUST_UNSTABLE=1 just --fmt
+
+alias l := lint
+
+[group("python")]
+install:
+    echo 'Installing dependencies...'
+    pip install django-mongodb-backend
+
+alias i := install
+
 [group("django")]
 migrate:
     echo 'Running database migrations...'
@@ -17,12 +36,6 @@ serve:
 
 alias s := serve
 
-open:
-    echo 'Opening application in web browser...'
-    xdg-open http://localhost:8000 || open http://localhost:8000
-
-alias o := open
-
 [group("django")]
 makemigrations:
     echo 'Creating new database migrations...'
@@ -30,12 +43,7 @@ makemigrations:
 
 alias mm := makemigrations
 
-install:
-    echo 'Installing dependencies...'
-    pip install django-mongodb-backend
-
-alias i := install
-
+[group("mongodb")]
 drop:
     echo 'Dropping MongoDB database "uat"...'
     mongosh ${MONGODB_URI:-mongodb://localhost:27017} --eval 'db.getSiblingDB("uat").dropDatabase()'
@@ -49,9 +57,3 @@ createsuperuser:
     python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
 
 alias su := createsuperuser
-
-lint:
-    # Format this justfile using just's unstable formatter
-    JUST_UNSTABLE=1 just --fmt
-
-alias l := lint
