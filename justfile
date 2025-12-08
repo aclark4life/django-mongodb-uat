@@ -46,6 +46,8 @@ createsuperuser:
 
 alias su := createsuperuser
 
-fmt:
+lint:
     # Format this justfile using just's unstable formatter
     JUST_UNSTABLE=1 just --fmt
+
+alias l := lint
