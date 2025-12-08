@@ -24,7 +24,7 @@ alias o := open
 
 makemigrations:
     echo 'Creating new database migrations...'
-    python manage.py makemigrations
+    python manage.py makemigrations admin auth contenttypes
 
 alias mm := makemigrations
 

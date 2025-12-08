@@ -122,3 +122,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
+
+MIGRATION_MODULES = {
+    "admin": "uat.migrations.admin",
+    "auth": "uat.migrations.auth",
+    "contenttypes": "uat.migrations.contenttypes",
+}
