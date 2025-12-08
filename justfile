@@ -45,3 +45,7 @@ createsuperuser:
     python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
 
 alias su := createsuperuser
+
+fmt:
+    # Format this justfile using just's unstable formatter
+    JUST_UNSTABLE=1 just --fmt
