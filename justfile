@@ -3,12 +3,14 @@
 default:
     echo 'Hello, world!'
 
+[group("django")]
 migrate:
     echo 'Running database migrations...'
     python manage.py migrate
 
 alias m := migrate
 
+[group("django")]
 serve:
     echo 'Starting development server...'
     python manage.py runserver
@@ -21,6 +23,7 @@ open:
 
 alias o := open
 
+[group("django")]
 makemigrations:
     echo 'Creating new database migrations...'
     python manage.py makemigrations admin auth contenttypes
@@ -39,6 +42,7 @@ drop:
 
 alias d := drop
 
+[group("django")]
 createsuperuser:
     echo 'Creating superuser...'
     export DJANGO_SUPERUSER_PASSWORD='admin'
