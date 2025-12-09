@@ -18,7 +18,8 @@ alias l := lint
 [group("python")]
 install:
     echo 'Installing dependencies...'
-    pip install django-mongodb-backend
+    pip install 'pymongo[encryption]'
+    pip install 'https://github.com/aclark4life/django-mongodb-backend/archive/refs/heads/INTPYTHON-527.zip'
 
 alias i := install
 
