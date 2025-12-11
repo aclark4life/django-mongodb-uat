@@ -54,7 +54,6 @@ alias d := drop
 [group("django")]
 createsuperuser:
     echo 'Creating superuser...'
-    export DJANGO_SUPERUSER_PASSWORD='admin'
-    python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
+    export DJANGO_SUPERUSER_PASSWORD=admin && python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
 
 alias su := createsuperuser
