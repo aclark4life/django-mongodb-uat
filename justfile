@@ -40,7 +40,7 @@ alias s := serve
 [group("django")]
 makemigrations:
     echo 'Creating new database migrations...'
-    python manage.py makemigrations admin auth contenttypes
+    python manage.py makemigrations admin auth contenttypes medical_records
 
 alias mm := makemigrations
 
